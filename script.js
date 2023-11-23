@@ -66,7 +66,7 @@ var studentData = [
         rollNo : "7286199" 
     },
     {
-        name : 'Shri',
+        name : "Shri",
         class : "12th",
         group : "Computer Science",
         rollNo : "7286132" 
@@ -96,12 +96,18 @@ cards(studentData);
 function filterFn() {
     var searchValue = document.getElementById("inputValueSearch").value.toLowerCase();
 
-    // var filteredStudents = "";
+    var filteredStudents = studentData;
+    var len = searchValue.length;
 
-       var filteredStudents = studentData.filter((item) =>
+    if(searchValue == "") {
+        alert("Invalid Blank Value")
+    } else if(searchValue == " "*len) {
+        alert("Empty Space value is Not Accepted")
+    } else {
+        filteredStudents = studentData.filter((item) =>
             item.name.toLowerCase().includes(searchValue)
         );
-
+    }
 
     cards(filteredStudents);
 }
